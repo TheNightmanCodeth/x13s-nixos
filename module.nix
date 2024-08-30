@@ -56,12 +56,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = false;
-        message = "adamcstephens/nixos-x13s is no longer maintained";
-      }
-    ];
 
     environment.systemPackages = [ pkgs.efibootmgr ];
 
@@ -87,7 +81,6 @@ in
         "dtb=${dtbEfiPath}"
 
         # jhovold recommended
-        "efi=noruntime"
         "clk_ignore_unused"
         "pd_ignore_unused"
         "arm64.nopauth"
