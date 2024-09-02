@@ -85,7 +85,6 @@ in
         "dtb=${dtbEfiPath}"
 
         # jhovold recommended
-        "efi=noruntime"
         "clk_ignore_unused"
         "pd_ignore_unused"
         "arm64.nopauth"
@@ -114,6 +113,7 @@ in
           "phy_qcom_edp"
           "panel-edp"
           "msm"
+          "uhci_hcd" # Something is fucky w this idk where to put it
         ];
       };
     };
