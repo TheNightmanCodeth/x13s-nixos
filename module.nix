@@ -113,7 +113,6 @@ in
           "phy_qcom_edp"
           "panel-edp"
           "msm"
-          "uhci_hcd" # Something is fucky w this idk where to put it
         ];
       };
     };
