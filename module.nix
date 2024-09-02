@@ -13,7 +13,7 @@ let
 
   linuxPackages_x13s =
     if cfg.kernel == "mainline" then
-      pkgs.linuxPackages_latest
+      x13sPackages.linux_jhovold
     else
       pkgs.linuxPackagesFor (
         if cfg.kernel == "jhovold" then x13sPackages.linux_jhovold else throw "Unsupported kernel"
