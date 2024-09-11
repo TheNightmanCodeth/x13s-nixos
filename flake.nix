@@ -11,9 +11,10 @@
       url = "https://download.lenovo.com/pccbbs/mobiles/n3hdr20w.exe";
       flake = false;
     };
+    linux-fw.url = "github:TheNightmanCodeth/linux-firmware-git-flake/main";
   };
 
-  outputs = { self, nixpkgs, jhovold, gpu-fw, ... }: 
+  outputs = { self, nixpkgs, jhovold, gpu-fw, linux-fw, ... }: 
     let
       pkgs = import nixpkgs {
         system = "aarch64-linux";
@@ -29,6 +30,8 @@
     in
     {
       packages.aarch64-linux = {
+        linux-fw = linux-fw.nixosModules.default;
+
         linux-jhovold = 
           linux_jhovold_pkg {
             src = jhovold;
@@ -42,8 +45,6 @@
             ${pkgs.lib.getExe pkgs.innoextract} ${gpu-fw}
             cp -v code\$GetExtractPath\$/*/*.mbn "$out/lib/firmware/qcom/sc8280xp/LENOVO/21BX"
           '';
-        
-
       };
     };
 }

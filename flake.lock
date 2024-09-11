@@ -29,7 +29,60 @@
         "type": "github"
       }
     },
+    "linux-firmware-gitlab": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725469974,
+        "narHash": "sha256-KH7W5zJlHswaGL+rXd1Uql40s5hQUfjVl3aKkwyHVcI=",
+        "owner": "kernel-firmware",
+        "repo": "linux-firmware",
+        "rev": "87cae274d38e69f6e9461f966fe42d223e20d7be",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "kernel-firmware",
+        "ref": "main",
+        "repo": "linux-firmware",
+        "type": "gitlab"
+      }
+    },
+    "linux-fw": {
+      "inputs": {
+        "linux-firmware-gitlab": "linux-firmware-gitlab",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1725831315,
+        "narHash": "sha256-4O78HTnvfKtWxMaIMyHYPesYi9GEJ1ECv20H6uKElVw=",
+        "owner": "TheNightmanCodeth",
+        "repo": "linux-firmware-git-flake",
+        "rev": "0243c29053b3d6a7e2ed0f9d8e8de0e0ef8580c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheNightmanCodeth",
+        "ref": "main",
+        "repo": "linux-firmware-git-flake",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1725634671,
+        "narHash": "sha256-v3rIhsJBOMLR8e/RNWxr828tB+WywYIoajrZKFM+0Gg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "574d1eac1c200690e27b8eb4e24887f8df7ac27c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1725983898,
         "narHash": "sha256-4b3A9zPpxAxLnkF9MawJNHDtOOl6ruL0r6Og1TEDGCE=",
@@ -49,7 +102,8 @@
       "inputs": {
         "gpu-fw": "gpu-fw",
         "jhovold": "jhovold",
-        "nixpkgs": "nixpkgs"
+        "linux-fw": "linux-fw",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },
