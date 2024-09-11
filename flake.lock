@@ -1,0 +1,58 @@
+{
+  "nodes": {
+    "gpu-fw": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-DiuwsxW7fS+l1wiI8itOEHV1RvonZxjSI29mzubTBio=",
+        "type": "file",
+        "url": "https://download.lenovo.com/pccbbs/mobiles/n3hdr20w.exe"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://download.lenovo.com/pccbbs/mobiles/n3hdr20w.exe"
+      }
+    },
+    "jhovold": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725863301,
+        "narHash": "sha256-xOrmt5FyuQxFEWHJRU2IB/Wr4B5QANju6O1ykSDCwYQ=",
+        "owner": "jhovold",
+        "repo": "linux",
+        "rev": "67bfac6ca1b558df9d5d018298ac425188994ab7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jhovold",
+        "ref": "wip/sc8280xp-6.11-rc7",
+        "repo": "linux",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1725983898,
+        "narHash": "sha256-4b3A9zPpxAxLnkF9MawJNHDtOOl6ruL0r6Og1TEDGCE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1355a0cbfeac61d785b7183c0caaec1f97361b43",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "gpu-fw": "gpu-fw",
+        "jhovold": "jhovold",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
