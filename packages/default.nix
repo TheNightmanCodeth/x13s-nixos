@@ -17,7 +17,7 @@ in
 {
   linux_jhovold = pkgs.callPackage linux_x13s_pkg {
     src = sources.linux-jhovold;
-    version = "6.11.0-rc6";
+    version = "6.11.0-rc7";
     defconfig = "johan_defconfig";
   };
 

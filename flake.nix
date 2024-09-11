@@ -111,16 +111,18 @@
 
                 nixos-x13s = {
                   enable = true;
+                  kernel = "jhovold";
                   bluetoothMac = "02:68:b3:29:da:98";
+                  wifiMac = "F4:A8:0D:FF:7C:87";
                 };
 
                 fileSystems = {
                   "/boot" = {
                     fsType = "vfat";
-                    device = "/dev/disk/by-label/ESP";
+                    device = "/dev/disk/by-label/ESP_nixinstaller";
                   };
                   "/" = {
-                    device = "/dev/disk/by-label/nixos";
+                    device = "/dev/disk/by-label/nixos_nixinstaller";
                     fsType = "ext4";
                     autoResize = true;
                   };
