@@ -92,6 +92,7 @@ in
       ];
 
       initrd = {
+        supportedFilesystems = [ "nfs" ];
         kernelModules = [
           "nvme"
           "phy-qcom-qmp-pcie"
@@ -101,7 +102,7 @@ in
           "i2c-hid"
           "i2c-hid-of"
           "i2c-qcom-geni"
-
+          "nfs"
           "leds_qcom_lpg"
           "pwm_bl"
           "qrtr"
