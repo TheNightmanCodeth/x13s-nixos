@@ -61,6 +61,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    hardware.enableRedistributableFirmware = true;
+
     environment.systemPackages = [ pkgs.efibootmgr ];
 
     hardware.enableAllFirmware = true;
