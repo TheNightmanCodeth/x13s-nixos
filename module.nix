@@ -105,6 +105,7 @@ in
           "i2c-hid-of"
           "i2c-qcom-geni"
           "nfs"
+          "rpc_pipefs"
           "leds_qcom_lpg"
           "pwm_bl"
           "qrtr"
