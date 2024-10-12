@@ -2,15 +2,19 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    jhovold-linux = {
+      url = "github:jhovold/linux/wip/sc8280xp-6.12-rc2";
+      flake = false;
+    };
   };
 
   outputs =
-    inputs@{ flake-parts, self, ... }:
+    inputs@{ flake-parts, self, jhovold-linux, ... }:
     let
       dtbName = "sc8280xp-lenovo-thinkpad-x13s.dtb";
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ ./packages/part.nix ];
+        # imports = [ ./packages/part.nix ];
 
       systems = [
         "x86_64-linux"
@@ -38,7 +42,7 @@
           };
         };
 
-      flake.nixosModules.default = import ./module.nix { inherit dtbName; };
+      flake.nixosModules.default = import ./module.nix { inherit dtbName; jhovold-linux = inputs.jhovold-linux; };
 
       flake.nixosConfigurations = {
         example = inputs.nixpkgs.lib.nixosSystem {
@@ -60,75 +64,6 @@
             )
           ];
         };
-
-        iso = inputs.nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          modules = [
-
-            self.nixosModules.default
-            (
-              {
-                modulesPath,
-                config,
-                lib,
-                pkgs,
-                ...
-              }:
-              let
-                image = import "${inputs.nixpkgs}/nixos/lib/make-disk-image.nix" {
-                  inherit config lib pkgs;
-
-                  name = "nixos-x13s-bootstrap";
-                  diskSize = "auto";
-                  format = "raw";
-                  partitionTableType = "efi";
-                  copyChannel = false;
-                };
-
-              in
-              {
-                hardware.deviceTree = {
-                  enable = true;
-                  name = "qcom/${dtbName}";
-                };
-
-                system.build.bootstrap-image = image;
-
-                boot = {
-                  initrd = {
-                    systemd.enable = true;
-                    systemd.emergencyAccess = true;
-                  };
-
-                  loader = {
-                    grub.enable = false;
-                    systemd-boot.enable = true;
-                    systemd-boot.graceful = true;
-                  };
-                };
-
-                nixpkgs.config.allowUnfree = true;
-
-                nixos-x13s = {
-                  enable = true;
-                  bluetoothMac = "02:68:b3:29:da:98";
-                };
-
-                fileSystems = {
-                  "/boot" = {
-                    fsType = "vfat";
-                    device = "/dev/disk/by-label/ESP";
-                  };
-                  "/" = {
-                    device = "/dev/disk/by-label/nixos";
-                    fsType = "ext4";
-                    autoResize = true;
-                  };
-                };
-              }
-            )
-          ];
-        };
       };
     };
-}
+  }

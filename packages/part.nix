@@ -1,4 +1,4 @@
-{ lib, withSystem, ... }:
+{ lib, withSystem, jhovold-linux, ... }:
 {
   perSystem =
     { pkgs, ... }:
@@ -10,6 +10,6 @@
     };
 
   flake.packages.aarch64-linux = withSystem "aarch64-linux" (
-    { pkgs, ... }: import ./default.nix { inherit lib pkgs; }
+    { pkgs, jhovold-linux, ... }: import ./default.nix { inherit lib pkgs jhovold-linux; }
   );
 }

@@ -1,15 +1,16 @@
-{ dtbName }:
+{ dtbName, jhovold-linux }:
 {
   config,
   lib,
   options,
   pkgs,
+  jhovold-linux,
   ...
 }:
 let
   cfg = config.nixos-x13s;
 
-  x13sPackages = import ./packages/default.nix { inherit lib pkgs; };
+  x13sPackages = import ./packages/default.nix { inherit lib pkgs jhovold-linux; };
 
   linuxPackages_x13s =
     if cfg.kernel == "mainline" then

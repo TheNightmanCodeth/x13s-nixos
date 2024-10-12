@@ -1,14 +1,12 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, jhovold-linux, ... }:
 let
-  sources = import ../npins;
-
   linux_x13s_pkg =
-    { version, buildLinux, ... }@args:
+    { version, buildLinux, jhovold-linux, ... }@args:
     buildLinux (
       args
       // {
         modDirVersion = version;
-
+        src = jhovold-linux;
         kernelPatches = (args.kernelPatches or [ ]) ++ [ ];
         extraMeta.branch = lib.versions.majorMinor version;
       }
@@ -16,8 +14,8 @@ let
 in
 {
   linux_jhovold = pkgs.callPackage linux_x13s_pkg {
-    src = sources.linux-jhovold;
-    version = "6.11.0-rc5";
+    inherit jhovold-linux;
+    version = "6.12.0-rc2";
     defconfig = "johan_defconfig";
   };
 
