@@ -10,7 +10,7 @@ The support for this machine is constantly improving in mainline kernel and upst
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-x13s.url = "github:BrainWart/x13s-nixos";
+    nixos-x13s.url = "github:TheNightmanCodeth/x13s-nixos";
   };
 
   outputs =
