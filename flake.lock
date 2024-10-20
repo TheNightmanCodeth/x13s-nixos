@@ -1,54 +1,54 @@
 {
   "nodes": {
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
+    "graphics-fw": {
+      "flake": false,
       "locked": {
-        "lastModified": 1727826117,
-        "narHash": "sha256-K5ZLCyfO/Zj9mPFldf3iwS6oZStJcU4tSpiXTMYaaL0=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "3d04084d54bedc3d6b8b736c70ef449225c361b1",
+        "narHash": "sha256-DiuwsxW7fS+l1wiI8itOEHV1RvonZxjSI29mzubTBio=",
+        "type": "file",
+        "url": "https://download.lenovo.com/pccbbs/mobiles/n3hdr20w.exe"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://download.lenovo.com/pccbbs/mobiles/n3hdr20w.exe"
+      }
+    },
+    "jhovold-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1728887054,
+        "narHash": "sha256-fyXyjrzptxvhG+7xI4ADo6raKRZWzg/Jph1waR2Vc30=",
+        "owner": "jhovold",
+        "repo": "linux",
+        "rev": "6bc37da2231cfed860662fa9717d0cf2896e1145",
         "type": "github"
       },
       "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
+        "owner": "jhovold",
+        "ref": "wip/sc8280xp-6.12-rc3",
+        "repo": "linux",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1729070438,
-        "narHash": "sha256-KOTTUfPkugH52avUvXGxvWy8ibKKj4genodIYUED+Kc=",
-        "owner": "NixOS",
+        "lastModified": 1729256560,
+        "narHash": "sha256-/uilDXvCIEs3C9l73JTACm4quuHUsIHcns1c+cHUJwA=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5785b6bb5eaae44e627d541023034e1601455827",
+        "rev": "4c2fcb090b1f3e5b47eaa7bd33913b574a11e0a0",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
-    "nixpkgs-lib": {
-      "locked": {
-        "lastModified": 1727825735,
-        "narHash": "sha256-0xHYkMkeLVQAMa7gvkddbPqpxph+hDzdu1XdGPJR+Os=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
-      }
-    },
     "root": {
       "inputs": {
-        "flake-parts": "flake-parts",
+        "graphics-fw": "graphics-fw",
+        "jhovold-src": "jhovold-src",
         "nixpkgs": "nixpkgs"
       }
     }
