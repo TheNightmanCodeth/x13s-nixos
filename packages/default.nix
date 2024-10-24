@@ -19,6 +19,7 @@ in
     src = sources.linux-jhovold;
     version = "6.12.0-rc4";
     defconfig = "johan_defconfig";
+    enableCommonConfig = false;
   };
 
   graphics-firmware =
