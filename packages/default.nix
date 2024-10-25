@@ -9,7 +9,7 @@ let
       // {
         modDirVersion = version;
 
-        kernelPatches = (args.kernelPatches or [ ]) ++ [ ];
+        #kernelPatches = (args.kernelPatches or [ ]) ++ [ ];
         extraMeta.branch = lib.versions.majorMinor version;
       }
     );
