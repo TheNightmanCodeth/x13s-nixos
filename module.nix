@@ -1,4 +1,4 @@
-{ dtbName, jhovold-linux }:
+{ dtbName }:
 {
   config,
   lib,

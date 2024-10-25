@@ -1,47 +1,29 @@
 {
   "nodes": {
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1727826117,
-        "narHash": "sha256-K5ZLCyfO/Zj9mPFldf3iwS6oZStJcU4tSpiXTMYaaL0=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "3d04084d54bedc3d6b8b736c70ef449225c361b1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "jhovold-linux": {
       "flake": false,
       "locked": {
-        "lastModified": 1728631036,
-        "narHash": "sha256-1LnClVjY6WS+IR9eqPFA7gzXm0cio3mY23NXj9cKHHs=",
+        "lastModified": 1729611773,
+        "narHash": "sha256-9aMsXr5M2QsqbNpM3dcTApDxMdtdS0PHmarHZkHXReA=",
         "owner": "jhovold",
         "repo": "linux",
-        "rev": "6a97bc22fa36010400b91e6d5979741c391112c3",
+        "rev": "47eaeee39f67f1aca064615b6929da7b765e93da",
         "type": "github"
       },
       "original": {
         "owner": "jhovold",
-        "ref": "wip/sc8280xp-6.12-rc2",
+        "ref": "wip/sc8280xp-6.12-rc4",
         "repo": "linux",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1728492678,
-        "narHash": "sha256-9UTxR8eukdg+XZeHgxW5hQA9fIKHsKCdOIUycTryeVw=",
+        "lastModified": 1729665710,
+        "narHash": "sha256-AlcmCXJZPIlO5dmFzV3V2XF6x/OpNWUV8Y/FMPGd8Z4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5633bcff0c6162b9e4b5f1264264611e950c8ec7",
+        "rev": "2768c7d042a37de65bb1b5b3268fc987e534c49d",
         "type": "github"
       },
       "original": {
@@ -51,21 +33,8 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib": {
-      "locked": {
-        "lastModified": 1727825735,
-        "narHash": "sha256-0xHYkMkeLVQAMa7gvkddbPqpxph+hDzdu1XdGPJR+Os=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
-      }
-    },
     "root": {
       "inputs": {
-        "flake-parts": "flake-parts",
         "jhovold-linux": "jhovold-linux",
         "nixpkgs": "nixpkgs"
       }
