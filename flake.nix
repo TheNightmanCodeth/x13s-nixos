@@ -1,69 +1,55 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     jhovold-linux = {
-      url = "github:jhovold/linux/wip/sc8280xp-6.12-rc2";
+      url = "github:jhovold/linux/wip/sc8280xp-6.12-rc4";
       flake = false;
     };
   };
 
-  outputs =
-    inputs@{ flake-parts, self, jhovold-linux, ... }:
+  outputs = { self, jhovold-linux, nixpkgs, ... }:
     let
       dtbName = "sc8280xp-lenovo-thinkpad-x13s.dtb";
-    in
-    flake-parts.lib.mkFlake { inherit inputs; } {
-        # imports = [ ./packages/part.nix ];
-
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-
-      perSystem =
-        { pkgs, ... }:
-        {
-          devShells = rec {
-            default = pkgs.mkShellNoCC { packages = [ pkgs.npins ] ++ ci.nativeBuildInputs; };
-
-            ci = pkgs.mkShellNoCC {
-              packages = [
-                pkgs.cachix
-                pkgs.jq
-                pkgs.just
-                (pkgs.python3.withPackages (py: [
-                  py.PyGithub
-                  py.packaging
-                ]))
-                pkgs.pyright
-              ];
-            };
-          };
-        };
-
-      flake.nixosModules.default = import ./module.nix { inherit dtbName; jhovold-linux = inputs.jhovold-linux; };
-
-      flake.nixosConfigurations = {
-        example = inputs.nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          modules = [
-            self.nixosModules.default
-            (
-              { config, pkgs, ... }:
-              {
-                nixos-x13s.enable = true;
-                nixos-x13s.kernel = "jhovold"; # jhovold is default, but mainline supported
-
-                # allow unfree firmware
-                nixpkgs.config.allowUnfree = true;
-
-                # define your fileSystems
-                fileSystems."/".device = "/dev/notreal";
-              }
-            )
-          ];
-        };
+    in {
+      nixosModules.default = import ./module.nix { 
+        inherit dtbName; 
+        jhovold-linux = jhovold-linux; 
       };
+
+      nixosConfigurations.installer = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = { inherit dtbName jhovold-linux; };
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
+          self.nixosModules.default
+          ./packages/installer.nix
+        ];
+      };
+
+      packages.aarch64-linux.installer = self.nixosConfigurations.installer.config.system.build.isoImage;
     };
-  }
+}
+
+  #      flake.nixosConfigurations = {
+  #        example = inputs.nixpkgs.lib.nixosSystem {
+  #          system = "aarch64-linux";
+  #          modules = [
+  #            self.nixosModules.default
+  #            (
+  #              { config, pkgs, ... }:
+  #              {
+  #                nixos-x13s.enable = true;
+  #                nixos-x13s.kernel = "jhovold"; # jhovold is default, but mainline supported
+  #
+  #                # allow unfree firmware
+  #                nixpkgs.config.allowUnfree = true;
+  #
+  #                # define your fileSystems
+  #                fileSystems."/".device = "/dev/notreal";
+  #              }
+  #            )
+  #          ];
+  #        };
+  #      };
+  #    };
+  #  }

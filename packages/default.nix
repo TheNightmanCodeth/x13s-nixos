@@ -7,7 +7,7 @@ let
       // {
         modDirVersion = version;
         src = jhovold-linux;
-        kernelPatches = (args.kernelPatches or [ ]) ++ [ ];
+        #kernelPatches = (args.kernelPatches or [ ]) ++ [ ];
         extraMeta.branch = lib.versions.majorMinor version;
       }
     );
@@ -15,7 +15,7 @@ in
 {
   linux_jhovold = pkgs.callPackage linux_x13s_pkg {
     inherit jhovold-linux;
-    version = "6.12.0-rc2";
+    version = "6.12.0";
     defconfig = "johan_defconfig";
   };
 
