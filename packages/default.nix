@@ -9,7 +9,15 @@ let
       // {
         modDirVersion = version;
 
-        kernelPatches = (args.kernelPatches or [ ]) ++ [ ];
+        kernelPatches = (args.kernelPatches or [ ]) ++ [ 
+          {
+            name = "drm-panic-qr-code-fix";
+            patch = pkgs.fetchpatch {
+              url = "https://lore.kernel.org/all/20241003230734.653717-1-ojeda@kernel.org/raw";
+              hash = "sha256-NH2yz9vzsPgMSuWrrvhJawQxXfFM1KR5c/o2Cnl55XY=";
+            };
+          }
+        ];
         extraMeta.branch = lib.versions.majorMinor version;
       }
     );
