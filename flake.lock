@@ -15,27 +15,27 @@
     "jhovold-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1728887054,
-        "narHash": "sha256-fyXyjrzptxvhG+7xI4ADo6raKRZWzg/Jph1waR2Vc30=",
+        "lastModified": 1729611773,
+        "narHash": "sha256-9aMsXr5M2QsqbNpM3dcTApDxMdtdS0PHmarHZkHXReA=",
         "owner": "jhovold",
         "repo": "linux",
-        "rev": "6bc37da2231cfed860662fa9717d0cf2896e1145",
+        "rev": "47eaeee39f67f1aca064615b6929da7b765e93da",
         "type": "github"
       },
       "original": {
         "owner": "jhovold",
-        "ref": "wip/sc8280xp-6.12-rc3",
+        "ref": "wip/sc8280xp-6.12-rc4",
         "repo": "linux",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1729256560,
-        "narHash": "sha256-/uilDXvCIEs3C9l73JTACm4quuHUsIHcns1c+cHUJwA=",
+        "lastModified": 1729880355,
+        "narHash": "sha256-RP+OQ6koQQLX5nw0NmcDrzvGL8HDLnyXt/jHhL1jwjM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4c2fcb090b1f3e5b47eaa7bd33913b574a11e0a0",
+        "rev": "18536bf04cd71abd345f9579158841376fdd0c5a",
         "type": "github"
       },
       "original": {
