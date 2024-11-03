@@ -10,7 +10,7 @@ let
   cfg = config.nixos-x13s;
 
   x13sPackages = import ./packages/default.nix { 
-    inherit version graphics-fw jhovold-src;
+    inherit pkgs version graphics-fw jhovold-src;
   };
 
   dtb = "${x13sPackages.jhovold-linux.kernel}/dtbs/qcom/${dtbName}";

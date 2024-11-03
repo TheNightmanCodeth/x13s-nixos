@@ -10,14 +10,14 @@
     };
 
     jhovold-src = {
-      url = "github:jhovold/linux/wip/sc8280xp-6.12-rc4";
+      url = "github:jhovold/linux/wip/sc8280xp-6.12-rc5";
       flake = false;
     };
   };
 
   outputs = { self, nixpkgs, jhovold-src, graphics-fw, ... }:
   let
-    version = "6.12.0-rc4";
+    version = "6.12.0-rc5";
     dtbName = "sc8280xp-lenovo-thinkpad-x13s.dtb";
     pkgs = import nixpkgs {
       system = "aarch64-linux";
