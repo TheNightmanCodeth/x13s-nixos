@@ -13,7 +13,9 @@ let
     inherit pkgs version graphics-fw jhovold-src;
   };
 
-  dtb = "${x13sPackages.jhovold-linux.kernel}/dtbs/qcom/${dtbName}";
+  linuxPackages_x13s = pkgs.linuxPackagesFor x13sPackages.jhovold-linux;
+
+  dtb = "${linuxPackages_x13s.kernel}/dtbs/qcom/${dtbName}";
   dtbEfiPath = "dtbs/x13s.dtb";
 
   modulesClosure = pkgs.makeModulesClosure {
@@ -64,7 +66,7 @@ in
         "${dtbEfiPath}" = dtb;
       };
 
-      kernelPackages = x13sPackages.jhovold-linux;
+      kernelPackages = linuxPackages_x13s;
 
       kernelParams = [
         "dtb=${dtbEfiPath}"
